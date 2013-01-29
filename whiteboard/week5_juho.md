@@ -7,6 +7,7 @@ Yes this is not a course for beginners but I'm going to take apart, none the les
 ## Where I started
 
 Here it is. http://learnyouahaskell.com/chapters
+and http://www.haskell.org/haskellwiki/Learn_Haskell_in_10_minutes
 
 I use Ubuntu 12.04 and typed `sudo apt-get install ghc6 ghc6-prof ghc6-doc` as a first command to my shell.
 
@@ -43,16 +44,21 @@ I've now read sections from 1 to 4 from learnyouahaskell.com
 Some of the things I've learned:
 
 ```
+ghci> (1 == 0)
+False
+```
+
+```
 ghci> min 4.4 3.2
 3.2
 ```
 
 ```
-ghci> (1 == 0)
-False
+ghci> round 5.4
+5
 ```
 
-Functions...
+Let it be...
 
 ```
 ghci> let doubleMe x = x + x
@@ -117,3 +123,6 @@ ghci> sum [1,2]
 3
 ```
 
+### Functions
+
+...TBD
