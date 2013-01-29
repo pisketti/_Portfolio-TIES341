@@ -123,6 +123,28 @@ ghci> sum [1,2]
 3
 ```
 
-### Functions
+```
+ghci> :t show
+show :: Show a => a -> String
+```
+
+Show get whatever type `a` and returns a string (type `String`) representation of it.
+
+### Functors
+
+```
+ghci> :t fmap
+fmap :: Functor f => (a -> b) -> f a -> f b
+```
+
+Yes, fmap will take a function as a parameter `f` and calls it with every type `a` returning type `b` back.
+
+```
+ghci> fmap show [3,4,5]
+["3","4","5"]
+```
+
+Every element in list will be sent to `show` and return value is set back to list.
+
 
 ...TBD
