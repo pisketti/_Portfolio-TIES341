@@ -4,11 +4,11 @@
 ## For :t fmap fmap
 
 Begin:
-:t fmap
-fmap :: Functor f => (a -> b) -> f a -> f b
+```:t fmap```
+```fmap :: Functor f => (a -> b) -> f a -> f b```
 
 Deductions:
-* First fmap as described above. Second using: (x -> y) -> f' x -> f' y
+* First fmap as described above. Second using: ```(x -> y) -> f' x -> f' y```
 * Type with the first parameter (which is a function (a -> b) - the second fmap that is) provided:
 ** f a -> f b
 ** Where (a -> b) matches (x -> y) -> f' x -> f' y
