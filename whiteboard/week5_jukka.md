@@ -10,8 +10,8 @@ Basic type definitions:
 Deductions:
 * First fmap as described above. Second using: ```(x -> y) -> f' x -> f' y```
 * Type with the first parameter (which is a function (a -> b) - the second fmap that is) provided:
-** f a -> f b
-** Where (a -> b) matches ```(x -> y) -> f' x -> f' y```
+ * f a -> f b
+ * Where (a -> b) matches ```(x -> y) -> f' x -> f' y```
 * Thus a matches the function (x -> y). This leaves b to match ```f' x -> f' y```
 * Now we can replace the original f a -> f b with the final result:
 * ```f (x -> y) -> f (f' x -> f' y)```
@@ -28,9 +28,9 @@ Basic type definitions:
 Deductions:
 * Numbering as follows: (.2) .1 (.3) - due to middle one using infix syntax, it is actually the first to which the other two composition operators are provided as arguments
 * Could be written as follows: ```(.) (.) (.)``` and then the order would be 1 2 3. I will refer to this all the way to the end now
-** 1st: ```(.) :: (b1 -> c1) -> (a1 -> b1) -> a1 -> c1```
-** 2nd: ```(.) :: (b2 -> c2) -> (a2 -> b2) -> a2 -> c2```
-** 3rd: ```(.) :: (b3 -> c3) -> (a3 -> b3) -> a3 -> c3```
+ * 1st: ```(.) :: (b1 -> c1) -> (a1 -> b1) -> a1 -> c1```
+ * 2nd: ```(.) :: (b2 -> c2) -> (a2 -> b2) -> a2 -> c2```
+ * 3rd: ```(.) :: (b3 -> c3) -> (a3 -> b3) -> a3 -> c3```
 * First with 2nd (.) placed: ```(a1 -> b1) -> a1 -> c1``` and (b1 -> c1) corresponds to 2nd (.)
 * Means: b1 = (b2 -> c2) and c1 = ```(a2 -> b2) -> a2 -> c2```
 * First is now: ```(a1 -> b2 -> c2) -> a1 -> (a2 -> b2) -> a2 -> c2```
@@ -60,9 +60,9 @@ Basic type definitions (this time with type names already uniquefied for later r
 Deductions:
 * Can be written (for more explicit execution order): ```(>>=) getLine ((.) print reverse)```
 * Sub-deduction: :t (.) print reverse
-** d -> x with (e -> x) corresponding to print's c -> IO () and (d -> e) to reverse's [y] -> [y]
-** So: d = [y], e = [y] = c, x = UI ()
-** So: ```[y] -> UI ()```
+ * d -> x with (e -> x) corresponding to print's c -> IO () and (d -> e) to reverse's [y] -> [y]
+ * So: d = [y], e = [y] = c, x = UI ()
+ * So: ```[y] -> UI ()```
 * So: ```(>>=) getLine ([y] -> IO ())```
 * So m a corresponds to IO String which means m = IO typeclass, a = String = [Char]
 * So ```(a -> m b)``` corresponds to ```([y] -> IO ())``` which means [y] = [Char], b = ()
