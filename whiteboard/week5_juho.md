@@ -137,14 +137,14 @@ ghci> :t fmap
 fmap :: Functor f => (a -> b) -> f a -> f b
 ```
 
-Yes, fmap will take a function as a parameter `f` and calls it with every type `a` returning type `b` back.
+Yes, fmap will take a function as a parameter `f` and calls it with (as a first parameter) every type `a` returning type `b` back.
 
 ```
 ghci> fmap show [3,4,5]
 ["3","4","5"]
 ```
 
-Every element in list will be sent to `show` and return value is set back to list.
+Every element in list will be sent to `show` and return value is set back to list. Just like `show 3` `show 4` `show 5` and so on..
 
 
 ...TBD
