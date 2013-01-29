@@ -68,6 +68,8 @@ ghci> [1..20]
 [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 ```
 
+And so on... Hurry, hurry... No time to explain :)
+
 ### List comprehensions
 
 ```
@@ -82,7 +84,9 @@ ghci> fst ("Wow", "Non")
 "Wow"
 ```
 
-## And finally TIES341 scope things
+Hurry, hurry... Phew...
+
+## And finally TIES341 (1st lecture, week 5) scope things
 
 ### Types
 
@@ -90,3 +94,18 @@ ghci> fst ("Wow", "Non")
 ghci> :t 5
 5 :: Num a => a
 ```
+
+It says that 5 is a `Num` and will allways be used (or "returned") as a `Num`
+
+```
+ghci> :t sum
+sum :: Num a => [a] -> a
+```
+
+However `sum` is a function which takes a list `[]` (containing type `Num` elements) as one parameter and returns type `Num` as a result.
+
+```
+ghci> sum [1,2]
+3
+```
+
