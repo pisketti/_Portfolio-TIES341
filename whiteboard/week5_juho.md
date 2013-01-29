@@ -52,11 +52,15 @@ ghci> (1 == 0)
 False
 ```
 
+Functions...
+
 ```
 ghci> let doubleMe x = x + x
 ghci> doubleMe 3
 6
 ```
+
+Take first from a list...
 
 ```
 ghci> head [5,4,3,2,1]
@@ -72,12 +76,16 @@ And so on... Hurry, hurry... No time to explain :)
 
 ### List comprehensions
 
+`loop_through_list_operation | variable <- value`
+
 ```
 ghci> [x*2 | x <- [1..10]]
 [2,4,6,8,10,12,14,16,18,20]
 ```
 
 ### Tuples
+
+Get first from a tuple (pair).
 
 ```
 ghci> fst ("Wow", "Non")
@@ -95,14 +103,14 @@ ghci> :t 5
 5 :: Num a => a
 ```
 
-It says that 5 is a `Num` and will allways be used (or "returned") as a `Num`
+It says that 5 is a `Num` and will allways be used (or "returned") as a `Num` (because type `a` == `a` == `Num`)
 
 ```
 ghci> :t sum
 sum :: Num a => [a] -> a
 ```
 
-However `sum` is a function which takes a list `[]` (containing type `Num` elements) as one parameter and returns type `Num` as a result.
+However `sum` is a function which takes a list `[]` (containing type `Num` elements) as one parameter and returns type `Num` as a result. (type `a` == `a` == `Num`)
 
 ```
 ghci> sum [1,2]
