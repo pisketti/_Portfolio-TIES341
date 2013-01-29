@@ -3,7 +3,7 @@
 
 ## fmap fmap
 
-Begin:
+Basic type definitions:
 ```:t fmap```
 ```fmap :: Functor f => (a -> b) -> f a -> f b```
 
@@ -21,7 +21,7 @@ Which matches :t fmap fmap
 
 ## (.) . (.)
 
-Begin:
+Basic type definitions:
 ```:t (.)```
 ```(.) :: (b -> c) -> (a -> b) -> a -> c```
 
@@ -45,17 +45,27 @@ Which matches ```:t (.) . (.)```
 
 ## getLine >>= print . reverse
 
-Begin:
+Basic type definitions (this time with type names already uniquefied for later reference):
 * ```:t getLine```
 * ```getLine :: IO String```
 * ```:t (>>=)```
-* ```(>>=) :: Monad m => m a -> (a -> m b) -> m b
+* ```(>>=) :: Monad m => m a -> (a -> m b) -> m b```
 * ```:t print```
-* ```print :: Show a => a -> IO ()```
-* ```:t (.)
-* ```(.) :: (b -> c) -> (a -> b) -> a -> c```
+* ```print :: Show c => c -> IO ()```
+* ```:t (.)```
+* ```(.) :: (e -> x) -> (d -> e) -> d -> x```
 * ```:t reverse```
-* ```reverse :: [a] -> [a]```
+* ```reverse :: [y] -> [y]```
 
 Deductions:
-* TODO
+* Can be written (for more explicit execution order): ```(>>=) getLine ((.) print reverse)```
+* Sub-deduction: :t (.) print reverse
+** d -> x with (e -> x) corresponding to print's c -> IO () and (d -> e) to reverse's [y] -> [y]
+** So: d = [y], e = [y] = c, x = UI ()
+** So: ```[y] -> UI ()```
+* So: ```(>>=) getLine ([y] -> IO ())```
+* So m a corresponds to IO String which means m = IO typeclass, a = String = [Char]
+* So ```(a -> m b)``` corresponds to ```([y] -> IO ())``` which means [y] = [Char], b = ()
+* So: ```IO ()```
+
+Which matches ```getLine >>= print . reverse :: IO ()```
